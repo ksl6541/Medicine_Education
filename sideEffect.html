@@ -1,0 +1,229 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Medicine Education</title>
+		<meta charset="utf-8">
+        <link rel="stylesheet" href="styleMenu.css">
+        <link rel="stylesheet" href="outline_sideEffect.css">
+	</head>
+	<body>
+        <header>
+        <script>
+            function ranNum(){
+                var num = Math.floor(Math.random()*4);
+                return num;
+            }
+        </script>
+        <h1>
+            <a href="index.html" style="color:white; text-decoration:none;">
+            <img id="img_topList" src="pill1.jpg" width="30" height="30">
+            Medicine Education
+            </a>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            <a href="concept.html" id="h1_sub">
+                    Concept
+            </a> &nbsp;
+            <a href="principle.html" id="h1_sub">
+                    Principle
+            </a> &nbsp;
+            <a href="manual.html" id="h1_sub">
+                    Manual
+            </a> &nbsp;
+            <a href="sideEffect.html" id="h1_sub">
+                <div style="display: inline; color:dodgerblue">
+                    Side Effect
+                </div>
+            </a>
+        </h1>
+        </header>
+        <div id="left">
+            <ol>
+                <b>Contents of this page</b>
+                <li>
+                    <a href="#Definition" style="color:#2e4361;">Definition</a>
+                </li>
+                <li>
+                    <a href="#Dose" style="color:#2e4361;">Dose</a>
+                </li>
+                <li>
+                    <a href="#Food interaction" style="color:#2e4361;">Food interaction</a>
+                </li>
+            </ol>
+        </div>
+        <div id="center">
+            <h2 id="Definition">
+                <br>
+                Definition
+            </h2>
+            <ul>
+                <li>
+                    Side effect<br>
+                    Any unintended effects of administering medicine at normal doses.
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    Adverse Event<br>
+                    Undesirable and unintended signs, symptoms, or diseases that occurred during the administration or use of medicine.<br>It is not necessary to have a causal relationship with using medicine.
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    Serious Adverse Event<br>
+                    Adverse Event refer to items that:<br>
+                    <ul>
+                        <li>
+                            Causing death or life-threatening.
+                        </li>
+                        <li>
+                            Need to Hospitalization or extension of hospitalization period.
+                        </li>
+                        <li>
+                            Causing continuous or major malfunction or deterioration.
+                        </li>
+                        <li>
+                            Causing congenital deformity or abnormality.
+                        </li>
+                        <li>
+                            Other Medically Important Situation.
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <img src="sideEffect.JPG" width=500px; height=300px>
+            <h2 id="Dose">
+                <br>
+                Dose
+            </h2>
+                <ul>
+                    <li>
+                        <b>All substances are positions; there is none which is not a poison. Only the dose makes the poison.</b>
+                        -Paracelsus<br><br>
+                    </li>
+                    <li>
+                        Dose-Response Curve<br>
+                        <img src="line1.JPG" width=350px; height="200px">
+                        <br>
+                        It indicate relationship between dose and effects, and generally takes the form of a sigmoid curve.<br>
+                        In most cases, there is no toxicity at low capacity.<br>
+                        The point at which the toxin is first shown is called a threshold dose level.<br><br>
+                    </li>
+                    <li>
+                        Therapeutic Index<br>
+                        <img src="line2.JPG" width=350px; height="200px">
+                        <br>
+                        It is a figure that confirms medicine safety.<br>
+                        Therapeutic Index = TD50/ED50<br>
+                        The smaller number, the safer.
+                    </li>
+                </ul>
+            <h2 id="Food interaction">
+                <br>
+                Food interaction
+            </h2>
+            <p>
+                Some foods can help the medicine to its full effect, while others can cause side effects.
+            </p>
+            <ul>
+                <li>
+                    Grapefruit juice - Blood pressure, Antidepressants, Allergy<br>
+                    Interrupt liver metabolism, so cause an abnormality in medicinal efficacy.<br><br>
+                </li>
+                <li>
+                    Acid fruit juice - Medicine<br>
+                    Change the acidity of the stomach.<br><br>
+                </li>
+                <li>
+                    Beer - Depression medicine<br>
+                    There are side effects caused by certain ingredients.<br><br>
+                </li>
+                <li>
+                    Milk, Dairy product - Antacid, Digestive, Cold <br>
+                    Disturb the absorption of medicines into the body.<br><br>
+                </li>
+                <li>
+                    Tannin - Antibiotic, Vitamin, Anemia<br>
+                    Disturb the absorption of medicines into the body.
+                </li>
+            </ul>
+        </div>
+        <div id="right">
+            <canvas id="canvas" with="300px" height="150px" style="border:1px solid #2e4361; margin-left:35px; margin-top:200px"></canvas>
+            
+            <button onclick=goSite() style="margin-left:35px; margin-top:10px">
+               &nbsp; Link to site&nbsp;
+            </button>
+            
+            <script>
+            
+            var c = document.getElementById("canvas");
+            var ctx = c.getContext("2d");
+            var site = new Image();
+            var num = ranNum();
+            
+            if(num==0){
+                
+                site.src="mfds.jpg";
+                site.onload = function(){
+                    ctx.drawImage(site, 0, 0, 300, 150);
+                }
+                function goSite(){
+                    window.open('https://www.mfds.go.kr/index.do','_blank');
+                }
+            }
+            if(num==1){
+                site.src="nifds.jpg";
+                site.onload = function(){
+                    ctx.drawImage(site, 0, 0, 300, 150);
+                }
+                function goSite(){
+                    window.open('https://www.nifds.go.kr/index.do','_blank');
+                }
+            }
+            if(num==2){
+                site.src="nedrug.jpg";
+                site.onload = function(){
+                    ctx.drawImage(site, 0, 0, 300, 150);
+                }
+                function goSite(){
+                    window.open('https://nedrug.mfds.go.kr/index','_blank');
+                }
+            }
+            if(num==3){
+                site.src="druginfo.jpg";
+                site.onload = function(){
+                    ctx.drawImage(site, 0, 0, 300, 150);
+                }
+                function goSite(){
+                    window.open('https://www.druginfo.co.kr','_blank');
+                }
+            }
+            </script>
+        </div>
+        <div id="footer">
+            <br>
+            <a href="index.html" style="color:darkslategrey;">
+                Home
+            </a> &nbsp;
+            <a href="concept.html" style="color:darkslategray;">
+                Concept
+            </a> &nbsp;
+            <a href="principle.html" style="color:darkslategray;">
+                Principle
+            </a> &nbsp;
+            <a href="manual.html" style="color:darkslategray;">
+                Manual
+            </a> &nbsp;
+            <a href="sideEffect.html" style="color:darkslategray;">
+                Side Effect
+            </a>
+            <br><br>
+            <div style="font-size:12px">
+                Copyright to KIM SangRyun
+                <br><br>
+                <a href="mailto:ksl65411019@gmail.com" style="color:darkslategray;" target>
+                    Email: ksl65411019@gmail.com</a>
+            </div>
+        </div>
+	</body>
+</html>

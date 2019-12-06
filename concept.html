@@ -1,0 +1,248 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Medicine Education</title>
+		<meta charset="utf-8">
+        <link rel="stylesheet" href="styleMenu.css">
+        <link rel="stylesheet" href="outline_concept.css">
+	</head>
+	<body>
+        <header>
+        <script>
+            function ranNum(){
+                var num = Math.floor(Math.random()*4);
+                return num;
+            }
+        </script>
+        <h1>
+            <a href="index.html" style="color:white; text-decoration:none;">
+            <img id="img_topList" src="pill1.jpg" width="30" height="30">
+            Medicine Education
+            </a>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            <a href="concept.html" id="h1_sub">
+                <div style="display: inline; color:dodgerblue">
+                    Concept
+                </div>
+            </a> &nbsp;
+            <a href="principle.html" id="h1_sub">
+                Principle
+            </a> &nbsp;
+            <a href="manual.html" id="h1_sub">
+                Manual
+            </a> &nbsp;
+            <a href="sideEffect.html" id="h1_sub">
+                Side Effect
+            </a>
+        </h1>
+        </header>
+        <div id="left">
+            <ol>
+                <b>Contents of this page</b>
+                <li>
+                    <a href="#Definition" style="color:#2e4361;">Definition</a>
+                </li>
+                <li>
+                    <a href="#Naming" style="color:#2e4361;">Naming</a>
+                </li>
+                <li>
+                    <a href="#Types" style="color:#2e4361;">Types</a>
+                </li>
+            </ol>
+        </div>
+        <div id="center">
+            <h2 id="Definition">
+                <br>
+                Definition
+            </h2>
+                <ul>
+                   <li>
+                        Definition in Dictionary
+                    </li> 
+                </ul>
+            <p>
+                Medicine, also called pharmaceutical drug or medication, is a checmaical substance used to treat, cure, prevent, or diagnose a disease a disease or to promote well-being.<br><br>
+            </p>
+                <ul>
+                   <li>
+                        Definition in pharmacist law
+                    </li> 
+                </ul>
+            <p>
+                According to the pharmacist law, a medicine refers to item that:
+                <br><br>
+                <b>1.Items that have been embroidered in the Korean Pharmacopoeia and are not medical supplies.</b><br>
+                Korea Pharmacopoeia has selected the most popular and important pharmaceutical original medicine, basic preparation and mixed agent, and sets the standard of quality standards in Korea, so all that is written here shall be regarded as medicine.
+            </p>
+            <p>
+                <b>2.Items that is used for the purpose of diagnosis, treatment, mitigation, treatment or prevention of a person or animal disease, not an instrument, machine, or device.</b><br>
+            </p>
+            <p>
+                <b>3.Items that is used for the purpose of having a pharmacological effect on a person's or animal's structural function and that is not an instrument, machine, or device</b><br>
+            </p>
+            <h2 id="Naming">
+                <br>
+                Naming
+            </h2>
+            <ul>
+                <li>
+                    Chemical name<br>
+                    A scientific name that accurately represents the structure of atoms and molecules.<br><br>
+                </li>
+                <li>
+                    Generic name(Nonproprietary name)<br><br>
+                </li> 
+                <li>
+                    Trade name(Proprietary name)<br>
+                    The name is given by a pharmaceutical company and has the symbol ® after the product name. This means that the name is registered by the manufacturer and has rights to the medicine.<br><br>
+                </li>
+                <li>
+                    Naming bio medicine<br><br>
+                    <iframe width="100%" height="450px" src="https://www.youtube.com/embed/i50gvSAhdPI" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </li> 
+            </ul>
+            <h2 id="Types">
+                <br>
+                Types
+            </h2>
+            <p>
+                <b>1.Oral medicine</b>
+            </p>
+            <img src="oral.jpg" width="200" height="150">
+            <ul>
+                <li>
+                    Tablet & Kasel
+                </li>
+                <li>
+                    Powder
+                </li>
+                <li>
+                    Syrup
+                </li>
+                <li>
+                    Suspension & Gel
+                </li>
+            </ul>
+            <p>
+                <b>2.External medicine</b>
+            </p>
+                 <img src="external.jpg" width="200" height="150">
+            <ul>
+                <li>
+                    Sclerite medicine
+                </li>
+                <li>
+                    Dermatological medicine
+                </li>
+                <li>
+                    Ophthalmological medicine
+                </li>
+                <li>
+                    Otohinolaryngological medicine
+                </li>
+                <li>
+                    Inhaler
+                </li>
+                <li>
+                    Suppository
+                </li>
+            </ul>
+            <p>
+                <b>3.Injection medicine</b>
+            </p>
+            <img src="injection.jpg" width="200" height="150">
+            <ul>
+                <li>
+                    Ampul & Vial
+                </li>
+                <li>
+                    Prefilled Syringe
+                </li>
+                <li>
+                    Infusion solution
+                </li>
+            </ul>
+            <p>
+                <b>4.Bio medicine</b>
+            </p>
+        </div>
+        <div id="right">
+            <canvas id="canvas" with="300px" height="150px" style="border:1px solid #2e4361; margin-left:35px; margin-top:200px"></canvas>
+            
+            <button onclick=goSite() style="margin-left:35px; margin-top:10px">
+               &nbsp; Link to site&nbsp;
+            </button>
+            
+            <script>
+            
+            var c = document.getElementById("canvas");
+            var ctx = c.getContext("2d");
+            var site = new Image();
+            var num = ranNum();
+            
+            if(num==0){
+                
+                site.src="mfds.jpg";
+                site.onload = function(){
+                    ctx.drawImage(site, 0, 0, 300, 150);
+                }
+                function goSite(){
+                    window.open('https://www.mfds.go.kr/index.do','_blank');
+                }
+            }
+            if(num==1){
+                site.src="nifds.jpg";
+                site.onload = function(){
+                    ctx.drawImage(site, 0, 0, 300, 150);
+                }
+                function goSite(){
+                    window.open('https://www.nifds.go.kr/index.do','_blank');
+                }
+            }
+            if(num==2){
+                site.src="nedrug.jpg";
+                site.onload = function(){
+                    ctx.drawImage(site, 0, 0, 300, 150);
+                }
+                function goSite(){
+                    window.open('https://nedrug.mfds.go.kr/index','_blank');
+                }
+            }
+            if(num==3){
+                site.src="druginfo.jpg";
+                site.onload = function(){
+                    ctx.drawImage(site, 0, 0, 300, 150);
+                }
+                function goSite(){
+                    window.open('https://www.druginfo.co.kr','_blank');
+                }
+            }
+            </script>
+        </div>
+        <div id="footer">
+            <br>
+            <a href="index.html" style="color:darkslategrey;">
+                Home
+            </a> &nbsp;
+            <a href="concept.html" style="color:darkslategray;">
+                Concept
+            </a> &nbsp;
+            <a href="principle.html" style="color:darkslategray;">
+                Principle
+            </a> &nbsp;
+            <a href="manual.html" style="color:darkslategray;">
+                Manual
+            </a> &nbsp;
+            <a href="sideEffect.html" style="color:darkslategray;">
+                Side Effect
+            </a>
+            <br><br>
+            <div style="font-size:12px">
+                Copyright to KIM SangRyun
+                <br><br>
+                <a href="mailto:ksl65411019@gmail.com" style="color:darkslategray;" target>
+                    Email: ksl65411019@gmail.com</a>
+            </div>
+        </div>
+	</body>
+</html>
