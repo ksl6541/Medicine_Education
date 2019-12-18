@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>CreateJS</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+<script src="https://code.createjs.com/easeljs-0.8.1.min.js"></script>
+<script src="https://code.createjs.com/createjs-2015.05.21.min.js"></script>
+<script src="https://code.createjs.com/tweenjs-0.6.1.min.js"></script>
+<script src="https://code.createjs.com/tweenjs-0.6.1.min.js"></script>
+<script src="https://code.createjs.com/preloadjs-0.6.2.min.js"></script>
+<script>
+    function ranNum(){
+        var num = Math.floor(Math.random()*4);
+        return num;
+    }
+    function shuffle(arr){
+        if(arr instanceof Array){
+        var len = arr.length;
+        if(len == 1) return arr;
+        var i = len * 2;
+        while(i > 0)
+            {
+                var idx1 = Math.floor(Math.random()* len);
+                var idx2 = Math.floor(Math.random()* len);
+                if(idx1 == idx2) continue;
+                var temp = arr[idx1];
+                arr[idx1] = arr[idx2];
+                arr[idx2] = temp;
+                i=i-1;
+            }
+        }
+    return arr;
+    }
+
+</script>
+
+</head>
+<script>
+    
+var xlist=[200,400,600,800];
+var sound = ["correct", "wrong"];
+var music = 0;
+shuffle(xlist);
+
+function init() {
+   // state: <canvas> 태그의 id와 연결되며 객체들의 container이다.
+    var stage = new createjs.Stage("canvas");
+    var water = new createjs.Shape();
+	var coke = new createjs.Shape();
+    var tea = new createjs.Shape();
+	var juice = new createjs.Shape();
+    var box = new createjs.Shape();
+    
+    loadSound();
+
+    water.graphics.beginFill("#2E2EFE").drawCircle(0, 0, 50);
+    water.x = xlist[0];
+    water.y = 200;
+    water.alpha=0.4;
+    water.createTextNode="Water";
+    coke.graphics.beginFill("#FE2E2E").drawCircle(0, 0, 50);
+    coke.x = xlist[1];
+    coke.y = 200;
+    coke.alpha=0.4;
+    tea.graphics.beginFill("#31B404").drawCircle(0, 0, 50);
+    tea.x = xlist[2];
+    tea.y = 200;
+    tea.alpha=0.4;
+    juice.graphics.beginFill("#FF8000").drawCircle(0, 0, 50);
+    juice.x = xlist[3];
+    juice.y = 200;
+    juice.alpha=0.4;
+    box.graphics.beginFill("#F5F6CE").drawRect(0, 0, 1000, 200);
+    box.x = 0;
+    box.y = 600;
+    box.alpha=0.3;
+    
+    stage.addChild(water);
+	stage.addChild(coke);
+    stage.addChild(tea);
+	stage.addChild(juice);
+    stage.addChild(box);
+    
+    var play = new createjs.Text("Bring the circle which we can have with every medicine.", "bold 30px Candara light", "#000000");
+    play.name = "play";
+    play.textAlign = "center";
+    play.textBaseline = "middle";
+    play.x = 500;
+    play.y = 50;
+    
+    var label_water = new createjs.Text("Water", "bold 24px Candara light", "#000000");
+    label_water.name = "label_water";
+    label_water.textAlign = "center";
+    label_water.textBaseline = "middle";
+    label_water.x = water.x;
+    label_water.y = water.y;
+    
+    var label_coke = new createjs.Text("Coke", "bold 24px Candara light", "#000000");
+    label_coke.name = "label_coke";
+    label_coke.textAlign = "center";
+    label_coke.textBaseline = "middle";
+    label_coke.x = coke.x;
+    label_coke.y = coke.y;
+    
+    var label_tea = new createjs.Text("Tea", "bold 24px Candara light", "#000000");
+    label_tea.name = "label_tea";
+    label_tea.textAlign = "center";
+    label_tea.textBaseline = "middle";
+    label_tea.x = tea.x;
+    label_tea.y = tea.y;
+    
+    var label_juice = new createjs.Text("Juice", "bold 24px Candara light", "#000000");
+    label_juice.name = "label_juice";
+    label_juice.textAlign = "center";
+    label_juice.textBaseline = "middle";
+    label_juice.x = juice.x;
+    label_juice.y = juice.y;
+    
+    var label_box = new createjs.Text("Box", "bold 40px Candara light", "#000000");
+    label_box.name = "label_box";
+    label_box.textAlign = "center";
+    label_box.textBaseline = "middle";
+    label_box.x = 500;
+    label_box.y = 750;
+    
+    stage.addChild(label_water);
+    stage.addChild(label_coke);
+    stage.addChild(label_tea);
+    stage.addChild(label_juice);
+    stage.addChild(label_box);
+    stage.addChild(play);
+    
+    createjs.Touch.enable(stage);
+
+    createjs.Ticker.addEventListener("tick", stage);
+    
+    water.addEventListener('mousedown',function(e) {
+        stage.addEventListener('stagemousemove',function(e) {
+            water.x = stage.mouseX;
+            water.y = stage.mouseY;
+            label_water.x = stage.mouseX;
+            label_water.y = stage.mouseY;
+          });
+        stage.addEventListener('stagemouseup',function(e) {
+            e.target.removeAllEventListeners();
+            var pt = water.localToLocal(100,0,box);
+            if(box.hitTest(pt.x,pt.y)){check();}
+          });
+     });
+    
+    coke.addEventListener('mousedown',function(e) {
+        stage.addEventListener('stagemousemove',function(e) {
+            coke.x = stage.mouseX;
+            coke.y = stage.mouseY;
+            label_coke.x = stage.mouseX;
+            label_coke.y = stage.mouseY;
+          });
+        stage.addEventListener('stagemouseup',function(e) {
+            e.target.removeAllEventListeners();
+            var pt = coke.localToLocal(100,0,box);
+            if(box.hitTest(pt.x,pt.y)){check();}
+          });
+     });
+    
+    tea.addEventListener('mousedown',function(e) {
+        stage.addEventListener('stagemousemove',function(e) {
+            tea.x = stage.mouseX;
+            tea.y = stage.mouseY;
+            label_tea.x = stage.mouseX;
+            label_tea.y = stage.mouseY;
+          });
+        stage.addEventListener('stagemouseup',function(e) {
+            e.target.removeAllEventListeners();
+            var pt = tea.localToLocal(100,0,box);
+            if(box.hitTest(pt.x,pt.y)){check();}
+          });
+     });
+    juice.addEventListener('mousedown',function(e) {
+        stage.addEventListener('stagemousemove',function(e) {
+            juice.x = stage.mouseX;
+            juice.y = stage.mouseY;
+            label_juice.x = stage.mouseX;
+            label_juice.y = stage.mouseY;
+          });
+        stage.addEventListener('stagemouseup',function(e) {
+            e.target.removeAllEventListeners();
+            var pt = juice.localToLocal(100,0,box);
+            if(box.hitTest(pt.x,pt.y)){check();}
+          });
+     });
+    
+    function check(){
+        if(water.y>600){
+            water.x=500;
+            water.y=660;
+            label_water.x=500;
+            label_water.y=660;
+            playSound(0);
+            alert("Correct!");
+            
+        }
+        else{
+            playSound(1);
+            alert("Wrong!");
+            location.reload();
+        }
+        
+    }
+    function loadSound(){
+        createjs.Sound.registerSound("music/correct.mp3", sound[0]);
+        createjs.Sound.registerSound("music/wrong.wav", sound[1]);
+    }
+    function playSound(idx){
+        createjs.Sound.play(sound[idx]);
+    }
+}
+    
+</script>
+<body onload="init();">
+    <canvas id="canvas" width="1000" height="800"></canvas>
+    <iframe src="../silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe>
+    <audio id="audio" autoplay>
+        <source src="music/minigame.mp3">
+    </audio>
+</body>
+
+</html>
