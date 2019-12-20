@@ -11,19 +11,19 @@ header{
 #left{
     background-color:darkgrey;
     width:20%;
-    height:1700px;
+    height:1800px;
     float: left;
 }
 #center{
     background-color:white;
     width:60%;
-    height:1700px;
+    height:1800px;
     float: left;
 }
 #right{
     background-color:darkgrey;
     width:20%;
-    height:1700px;
+    height:1800px;
     float: left;
 }
 #footer{
